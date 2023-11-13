@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="letter-bank" class="letter-bank"></div>
+        <input id="submissions" type="text" maxlength="8">
+        <div id="word-count" class="word-count">0</div>  
+        <br><div id="timer" class="timer">0</div>  
+        <div class="points">
+            <div id="round-points">
+                <table>
+                    <tr>
+                        <thead id="round-pts">
+                        </thead>
+                    </tr>
+                    <tr>
+                        <td>Three:</td>
+                        <td id="three-pts">0</td>
+                    </tr>
+                    <tr>
+                        <td>Four:</td>
+                        <td id="four-pts">0</td>
+                    </tr>
+                    <tr>
+                        <td>Five+:</td>
+                        <td id="five-pts">0</td>
+                    </tr>
+                    <tr>
+                        <td>Full House:</td>
+                        <td id="fh-pts">0</td>
+                    </tr>
+                    <tr>
+                        <td>Flush (<span id="flush-letter"></span>):</td>
+                        <td id="flush-pts">0</td>
+                    </tr>
+                    <tr>
+                        <td>Wild:</td>
+                        <td id="wild-pts">0</td>
+                    </tr>
+                    <tr>
+                        <td>Bonus:</td>
+                        <td id="bonus-pts">0</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="game-points">
+                <table>
+                    <tr>
+                        <thead>
+                            Game points:
+                        </thead>
+                    </tr>
+                    <tr>
+                        <td>Three:</td>
+                        <td id="game-three-pts">0</td>
+                    </tr>
+                    <tr>
+                        <td>Four:</td>
+                        <td id="game-four-pts">0</td>
+                    </tr>
+                    <tr>
+                        <td>Five+:</td>
+                        <td id="game-five-pts">0</td>
+                    </tr>
+                    <tr>
+                        <td>Full House:</td>
+                        <td id="game-fh-pts">0</td>
+                    </tr>
+                    <tr>
+                        <td>Flush (<span id="game-flush-letter"></span>):</td>
+                        <td id="game-flush-pts">0</td>
+                    </tr>
+                    <tr>
+                        <td>Wild:</td>
+                        <td id="game-wild-pts">0</td>
+                    </tr>
+                    <tr>
+                        <td>Bonus:</td>
+                        <td id="game-bonus-pts">0</td>
+                    </tr>
+                    <tr>
+                        <td>Total:</td>
+                        <td id="game-total-pts">0</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+            <script src="./dict.js"></script>        
+        <script src="./scripts.js"></script>
+    </body>
+</html>

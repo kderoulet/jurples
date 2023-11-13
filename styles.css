@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #30816B;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex: 1 0 0;
+    font-family: monospace;
+}
+
+input {
+    background-color: inherit;
+    color: inherit;
+    border: 3px solid white;
+    width: 50vw;
+    height: 100px;
+    align-self: center;
+    font-size: 80px;
+    letter-spacing: 40px;
+    white-space: pre;
+    font-family: monospace;
+    /* flex: 0 0 100%; */
+}
+
+.letter-bank {
+    background-color: inherit;
+    color: inherit;
+    width: 50vw;
+    height: 100px;
+    align-self: flex-start;
+    font-size: 80px;
+    letter-spacing: 40px;
+    white-space: pre;
+    /* flex: 0 0 100%; */
+}
+
+.timer {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.points {
+    width: 100%;
+    margin: 0 20%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.selected {
+    color: gray;
+}
+
+.selectable:hover {
+    cursor: pointer;
+    color: lightgreen;
+}
