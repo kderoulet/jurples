@@ -16,9 +16,12 @@ function filterWords(names, index, letter) {
     return filteredNames;
 }
 
-const SixLetterWords = jurplesDictionary.filter(word => {
-    if (word.length === 8) return word
-})
+// const SixLetterWords = jurplesDictionary.filter(word => {
+//     if (word.length === 5) return word
+// })
+function getWordsOfOneLength(number) {
+    return jurplesDictionary.filter(word => {if (word.length === number) return word})
+}
 
 let submissionInput = document.querySelector('#submissions')
 let letterBank = document.querySelector('#letter-bank')
@@ -74,9 +77,16 @@ function newRound() {
     // sample bounds:   2 <= vowels <= 4; 2 <= rare cons <= 3
     let vowelCount = 0, rareCount = 0
     // new strat... pick 6 letter word, add two letters, scramble
-    let firstSix = pickRandom(SixLetterWords)
-    for (let i = 0; i < 6; i++) {
-        let newLetter = firstSix[i]
+    let random = Math.random()
+    let wordLength = 8
+    if (random < 0.10) wordLength = 8
+    else if (random < 0.30) wordLength = 7
+    else if (random < 0.70) wordLength = 6
+    else wordLength = 5
+    let initialWord = pickRandom(getWordsOfOneLength(wordLength))
+    for (let i = 0; i < initialWord.length; i++) {
+        console.log(initialWord)
+        let newLetter = initialWord[i]
         wordArray.push(newLetter)
         if (vowels.includes(newLetter)) {
             vowelCount++
@@ -88,7 +98,7 @@ function newRound() {
             commonWeightedLetters = commonWeightedLetters.filter(a => a !== newLetter)        
         }
     }
-    for (let i = 0; i < 2; i++) {
+    for (let i = wordArray.length; i < 8; i++) {
         let newLetter = ''
         if (vowelCount < 2) {
             newLetter = pickRandom(vowels)
