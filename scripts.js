@@ -8,6 +8,7 @@ let gamePointCategories = {
     bonus: 0
 }
 let rounds = 0;
+let roundLength = 60
 function filterWords(names, index, letter) {
     var filteredNames = names.filter(function(word) {
        return word.charAt(index) === letter;
@@ -25,6 +26,7 @@ let wordCount = document.querySelector('#word-count')
 let timer = document.querySelector('#timer')
 
 let roundPts = document.querySelector('#round-pts')
+let roundPointsContainer = document.querySelector('#round-points')
 let threePts = document.querySelector('#three-pts')
 let fourPts = document.querySelector('#four-pts')
 let fivePts = document.querySelector('#five-pts')
@@ -129,9 +131,8 @@ function newRound() {
             }
         }, 1000)
     }
-    let timerTime = 90
-    timer.textContent = timerTime
-    startTimer(timerTime, timer)
+    timer.textContent = roundLength
+    startTimer(roundLength, timer)
 
     function endGame() {
         // disable typing
@@ -140,9 +141,9 @@ function newRound() {
         roundPts.textContent = "Select a score:"
         // start new game
         pointBoard.forEach(score => {
-            if (!score.classList.value.includes('selected')) {
+            if (!score.classList.contains('selected')) {
                 score.addEventListener('click', addToTotal)
-                score.className += 'selectable'
+                score.classList.add('selectable')
             }
         })
     }
@@ -181,6 +182,15 @@ function newRound() {
         
         checkForNewRound()
     }
+
+    // clean up selectable state and listeners carried over from previous rounds
+    // (non-selected scores keep 'selectable' class + listeners after each choice)
+    pointBoard.forEach(score => {
+        if (!score.classList.contains('selected')) {
+            score.classList.remove('selectable')
+            score.removeEventListener('click', addToTotal)
+        }
+    })
     
     // let wordArray = ['a', 'c', 'c', 'u', 's', 'e', 'r', 's']
     let wordReversed = wordArray.toReversed()
