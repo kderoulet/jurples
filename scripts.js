@@ -85,7 +85,6 @@ function newRound() {
     else wordLength = 5
     let initialWord = pickRandom(getWordsOfOneLength(wordLength))
     for (let i = 0; i < initialWord.length; i++) {
-        console.log(initialWord)
         let newLetter = initialWord[i]
         wordArray.push(newLetter)
         if (vowels.includes(newLetter)) {
